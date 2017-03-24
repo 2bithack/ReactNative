@@ -1,0 +1,98 @@
+<!-- shopping_cart.html -->
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <script>
+        //create cart list
+        var shoppingCart = [];
+        //item class
+        function item(id, name, price, qty){
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.qty = qty;
+        };
+        //add items
+        function addItem(item){
+            // console.log("adding item ", item);
+            // var newItem = true;
+            // for (var i = 0; i < shoppingCart.length; i++) {
+            //     if(this.item.id === item.id){
+            //         console.log("????? increase qty");
+            //         item.qty += qty;
+            //         newItem = false;
+            //     }
+            // }
+            // if (newItem === true){
+            //     shoppingCart.push(item)
+            // }
+            var itemExists = false;
+            var newCart = cart.map(function(item){
+                if (item.id === id) {
+                    item.qty += 
+                }
+            });
+        };
+
+        function removeItem(item){
+            // var newItem = false;
+            // for (var i = 0; i < shoppingCart.length; i++) {
+            //     if(shoppingCart[i].id === this.item.id){
+            //         shoppingCart[i].splice(i, 1);
+            //         newItem = true
+            //         break;
+            //     }
+            // }
+            // if (newItem === true){
+            //     console.log("Can't remove item, doesn't exist")
+            // }
+
+        };
+
+        function count(/*item*/){
+            // var count = 0
+            // for (var i = 0; i < shoppingCart.length; i++) {
+            //     count += shoppingCart[i].qty
+            // }
+            return shoppingCart.reduce(function(acc, item) {
+                return (acc + item.qty);
+            }, 0);
+
+            //console.log("Items in cart:" + count)
+        };
+
+        function total(){
+            // var total = 0
+            // for (var i = 0; i < shoppingCart.length; i++) {
+            //     total += shoppingCart[i].price * shoppingCart[i].qty
+            // }
+            // console.log("Total Cost:" + total)
+            return shoppingCart.reduce(function(acc, item){
+                return (acc + item.price * item.qty)
+            }, 0);
+        };
+
+        function display(){
+            console.log(shoppingCart)
+            return shoppingCart.reduce(function(acc, item){
+                return (acc + item.name + " $" + item.price + " x " + item.qty + " = " + item.qty * item.price + "\n");
+            }, "");
+        };
+
+        addItem( new item(33, "Cafe Latte", 4.99, 1) );
+        addItem( new item(369, "Bad Bitches", 0.99, 3) );
+        addItem( new item(7, "Dragon Balls", 9000.99, 7) );
+        addItem( new item(33, "Cafe Latte", 4.99, 1) );
+        removeItem(369)
+
+        console.log(shoppingCart)
+        console.log(count())
+        console.log(total())
+        console.log(display())
+
+        </script>
+    </body>
+</html>
