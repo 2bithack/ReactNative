@@ -22,20 +22,48 @@ const colors = [
     {"colors":["Blue","Orange","Green","Aquamarine","Khaki"]},
     {"colors":["Pink","Green","Goldenrod","Purple","Indigo"]}
 ];
-    
+
 
     // Challenge 1
-    // Create a master array that contains all of the colors from all of the color arrays. 
+    // Create a master array that contains all of the colors from all of the color arrays.
     // Duplicates are ok.
-    
+    const colorList = () => {
+        var fullColorList = colors.reduce((acc, colorz) => {
+            return [...acc, ...colorz.colors];
+        }, []);
+        console.log(fullColorList);
+        return fullColorList;
+    }
+    colorList();
 
     // Challenge 2
-    // Create an array of colors from the colors above that contains only one instance of 
+    // Create an array of colors from the colors above that contains only one instance of
     // each color.
-    
+    const uniqueColorList = () => {
+        var fullColorList = colorList();
+        var uniqueList = fullColorList.filter((acc, colorz) => {
+            return fullColorList.indexOf(acc) == colorz;
+        },[]);
+        console.log(uniqueList);
+    }
+    uniqueColorList();
 
     // Challenge 3
-    // From the array above create an object with properties named for each color with a 
-    // value equal to the number of times the color appears in all of the arrays above. 
-    
+    // From the array above create an object with properties named for each color with a
+    // value equal to the number of times the color appears in all of the arrays above.
+    const colorHistogram = () => {
+        var colorListCount = {};
+        var uniqueList = colors.forEach((colorz, index) => {
+            if (colorListCount[colorz]) {
+                colorListCount[colorz] = colorListCount[colorz] + 1;
+            }
+            else {
+                colorListCount[colorz] = 1;
+            }
+        },[]);
+        console.log(colorListCount);
+    }
+    colorHistogram();
+
+
 </script>

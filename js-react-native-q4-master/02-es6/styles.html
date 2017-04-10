@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 <script type="text/babel">
-    // Imagine you have some styles 
+    // Imagine you have some styles
 
     const styles = {
         color: 'black',
@@ -19,15 +19,15 @@
         color: '#444',
         fontSize: 18,
     };
-
-    /* 
+//[...styles, ...title]
+    /*
         Imagine you need to "inherit" values from your base object: styles
-        and add these properties to title and subtitle. You've kept the 
+        and add these properties to title and subtitle. You've kept the
         properties separate easy of writing the code. At run time you need
-        to combine these objects together to get the style rules that will 
-        be applied via JS. 
+        to combine these objects together to get the style rules that will
+        be applied via JS.
 
-        For example the end result of title should look like: 
+        For example the end result of title should look like:
 
         {
             color: 'black',
@@ -38,11 +38,16 @@
             fontFamily: 'Helvetica'
         }
 
-        Notice that styles and title both contain fontSize, in this case properties in 
-        styles should always be over written by another style. 
+        Notice that styles and title both contain fontSize, in this case properties in
+        styles should always be over written by another style.
     */
 
+    const overrideStyle = (default, style) => {
+        newStyle = {...default, ...style};
+    }
 
+    console.log(overrideStyle(styles, title));
+    console.log(overrideStyle(styles, subtitle));
 
 
 
@@ -66,14 +71,14 @@
             fontSize: 18,
         }
     }
-    
+
     /*
-        This time your job is to combine base properties with each of the other 
-        properties of object above. Properties in base should always be overwritten 
-        by propertie from title and subtitle. 
-        
-        Write a function to do this. 
+        This time your job is to combine base properties with each of the other
+        properties of object above. Properties in base should always be overwritten
+        by propertie from title and subtitle.
+
+        Write a function to do this.
     */
 
-    
+
 </script>
